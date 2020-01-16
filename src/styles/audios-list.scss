@@ -1,0 +1,38 @@
+audios-list {
+  .audios-list-item {
+    .play, .add-to-cart {
+      &:hover {
+        cursor: pointer;
+        color: $primary;
+      }
+    }
+    .add-to-cart {
+      color: $primary;
+      &:hover {
+        background: $primary;
+      }
+    }
+    .remove-from-cart {
+      color: $red;
+      &:hover {
+        background: $red;      
+      }
+    }
+    .add-to-cart,
+    .remove-from-cart {
+      .audio-price {
+        color: $white;
+      }
+      &:hover i {
+        color: $black;
+      }
+    }
+  }
+
+  &:not(.removable) .remove-from-cart,
+  &.removable .add-to-cart {
+    display:none;
+  }
+  
+  
+}

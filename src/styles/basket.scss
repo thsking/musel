@@ -1,0 +1,57 @@
+.basket {
+  width: 100%;
+  max-width: 650px;
+  background: $black;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 25px 45px;
+  overflow-y: auto;
+  border-left: 5px solid $primary;
+  z-index: $basket-zindex;
+  transform: translate(100%);
+  transition: all 0.3s ease-in-out;
+
+  h2 {
+    padding-bottom: 15px;
+    border-bottom: 1px solid $primary;
+  }
+
+  .exit {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10px;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+      background: $primary;
+      cursor: pointer;
+    }
+  }
+
+
+  audios-list {
+    height: 25px;
+    overflow-y: auto;
+  }
+
+  .total-title {
+    color: $primary;
+  }
+
+  .finalize-btn {
+    background: $primary;
+    border-color: $primary;
+    &:hover {
+      background-color: $purple;
+      border-color: $purple;
+    }
+  }
+
+}
+
+.open > .basket, .basket.open {
+  transform: translate(0);
+}

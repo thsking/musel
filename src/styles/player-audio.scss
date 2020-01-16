@@ -1,0 +1,31 @@
+.player-audio {
+  background: black;
+  padding: 15px 35px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: $player-zindex;
+
+  .player-progress-bar {
+    height: 5px;
+    width: 100%;
+    background: #ccc;
+    border-radius: 5px;
+
+    .player-progress-bar-current {
+      width: 0%;
+      height: 100%;
+      background: $primary;
+      border-radius: 5px;
+      display: block;
+      pointer-events: none;
+    }
+  }
+
+  .player-progress-time-now,
+  .player-progress-total {
+    min-width: 26px;
+  }
+
+}

@@ -1,0 +1,27 @@
+body {
+  font-family: sans-serif;
+  background: $black;
+  color: $white;
+}
+
+.buy-btn {
+  -ms-flex-align: center;
+  align-items: center;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  i {
+    font-size: 18px;
+    padding-right: 5px;
+  }
+}
+
+.player-btn-prev,
+.player-btn-next,
+.player-btn-toggle-play {
+  &:hover {
+    cursor: pointer;
+    color: $primary;
+  }
+}
