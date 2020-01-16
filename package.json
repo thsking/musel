@@ -1,7 +1,7 @@
 {
-  "name": "Musel",
+  "name": "musel",
   "version": "1.0.0",
-  "description": "Light package with web component to listen and cell music.",
+  "description": "Light package with web component to listen and sell music.",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --config webpack/webpack.config.prod.js  --colors",
     "start": "webpack-dev-server --open --config webpack/webpack.config.dev.js"
