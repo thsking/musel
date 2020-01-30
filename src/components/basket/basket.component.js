@@ -15,15 +15,11 @@ export default class BasketComponent extends HTMLElement {
     this.initItems();
     this.listenClick();
     this.listenBasketEvent();
-    this.listenBasketAudios();
   }
 
   initItems(){
-    // this.$audios;
-    // BasketService.addAudio({an: 'AUDIO'});
-    // console.log(BasketService.getAudios());
-    // console.log({b: BasketService.getAudios() }); 
     this.$audios.audios = BasketService.getAudios(); 
+    this.calculeTotalPrice();
   }
 
   listenClick(){
@@ -31,6 +27,9 @@ export default class BasketComponent extends HTMLElement {
       const target = event.target;
       if(target.classList.contains('exit') || target.closest('.exit')){
         this.close();
+      }
+      if(target.classList.contains('clear-basket-btn') || target.closest('.clear-basket-btn')){
+        this.clearBasket();
       }
     });
   }
@@ -40,15 +39,21 @@ export default class BasketComponent extends HTMLElement {
       this.open();
     });
     document.addEventListener('basketAudiosUpdated', event => {
-      console.log({basketAudiosUpdated: event});
       this.$audios.audios = event.detail && event.detail.audios ? event.detail.audios : [] ;
+      this.calculeTotalPrice();
     });
   }
 
-  listenBasketAudios(){
-    document.addEventListener('basketAudiosUpdated', event => {
-      console.log('basket updated');
-    });
+  calculeTotalPrice(){
+    let somme = 0;
+    for(let audio of this.$audios.audios){
+      somme += parseInt(audio.price);
+    }
+    this.$totalPrice.textContent = somme + " €";
+  }
+
+  clearBasket(){
+    BasketService.clearAudios();
   }
 
   open(){
@@ -61,6 +66,7 @@ export default class BasketComponent extends HTMLElement {
 
   async assignSelectors(){
     this.$audios = this.querySelector('audios-list');
+    this.$totalPrice = this.querySelector('.total-price');
   }
 
   render(){

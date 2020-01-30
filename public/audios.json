@@ -3,14 +3,24 @@
     "title": "A wonderful music title",
     "duration": 120,
     "id": "Askamaya",
-    "price": "9,99",
-    "extraitPath":"Teni%20-%20Askamaya%20official%20video.mp3"
+    "price": 9.99,
+    "extraitPath":"Teni%20-%20Askamaya%20official%20video.mp3",
+    "cover": "https://4.bp.blogspot.com/-ANJ-fsL3z58/XB2bEftO5FI/AAAAAAAAAuY/CNxUxv_PCfQz-KcZmjI853DIbBRBR-R0ACLcBGAs/s1600/IMG-20181221-WA0012.jpg"
   },
   {
-    "title": "Perfect hello",
+    "title": "Perfect hello", 
     "duration": 45,
     "id": "Wait",
-    "price": "15,00",
-    "extraitPath":"Teni%20-%20Wait%20(Official%20Video).mp3"
+    "price": 15,
+    "extraitPath":"Teni%20-%20Wait%20(Official%20Video).mp3",
+    "cover": "https://m.media-amazon.com/images/I/71PemhmvWeL._SS500_.jpg"
+  },
+  {
+    "title": "X fantasie",
+    "duration": 45,
+    "id": "fantasie",
+    "price": 13,
+    "extraitPath":"Teni%20-%20Wait%20(Official%20Video).mp3",
+    "cover": ""
   }
 ]

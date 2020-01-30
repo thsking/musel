@@ -18,6 +18,24 @@ audios-list {
         background: $red;      
       }
     }
+    .cover-container {
+      width: 20px;
+      height: 100px;
+      background: $purple-dark;
+      overflow: hidden;
+      margin-right: 20px;
+      transition: all 0.4s ease-in-out;
+      img {
+        max-width:100px;
+        max-height:100px;
+      }
+    }
+
+    &.played .cover-container,
+    .cover-container:hover {
+      width: 100px;
+    }
+
     .add-to-cart,
     .remove-from-cart {
       .audio-price {

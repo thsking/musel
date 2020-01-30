@@ -91,6 +91,12 @@ export default class AudiosListComponent extends HTMLElement {
     let $item = this.querySelector(`#${audio.selectorId}`);
     let $playBtn = $item.querySelector('.play');
 
+    for(let it of this.querySelectorAll('.audios-list-item.played')){
+      it.classList.remove('played');
+    }
+
+    $item.classList.add('played');
+
     if (playing) {
       $playBtn.textContent = "pause_circle_filled";
     }
@@ -135,15 +141,24 @@ export default class AudiosListComponent extends HTMLElement {
   render() {
     let fragment = document.createDocumentFragment();
     for (let [id, audio] of Object.entries(this._audios)) {
+
       let itemHtml = Template.cloneNode(true);
       let selectorId = this.createSelectorIdForAudio(audio, id);
       itemHtml.querySelector('.audio-title').textContent = audio.title;
       itemHtml.querySelector('.audio-duration').textContent = Tools.secondeToMinute(audio.duration);
-      itemHtml.querySelector('.audio-price').textContent = audio.price + " €";
+      itemHtml.querySelector('.remove-from-cart .audio-price').textContent = audio.price + " €";
+      itemHtml.querySelector('.add-to-cart .audio-price').textContent = audio.price + " €";
       itemHtml.dataset.audioId = id;
       itemHtml.setAttribute('id', selectorId);
       fragment.appendChild(itemHtml);
       this._audios[id].selectorId = selectorId;
+      itemHtml.querySelector('.cover-container img').setAttribute('src', audio.cover ? audio.cover : '' );
+      if(!audio.cover){
+        itemHtml.querySelector('.cover-container img').setAttribute('hidden', true);
+      }
+      else {
+        itemHtml.querySelector('.cover-container img').removeAttribute('hidden');        
+      }
     }
     this.innerHTML = "";
     this.appendChild(fragment);

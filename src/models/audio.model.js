@@ -14,6 +14,7 @@ export default class AudioModel {
     this.duration = Tools.assignOrSetDefault(audio.duration, 0); // sec
     this.price = Tools.assignOrSetDefault(audio.price, 0); // euro 00,00
     this.extraitPath =  Tools.assignOrSetDefault(audio.extraitPath, "");
+    this.cover =  Tools.assignOrSetDefault(audio.cover, "");
   }
 
   get fullPath(){

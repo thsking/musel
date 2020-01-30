@@ -95,6 +95,12 @@ export default class PlayerAudioComponent extends HTMLElement {
     this.$title.textContent = audio.title;
     this.$price.textContent = audio.price;
     this.$totalDuration.textContent = Tools.secondeToMinute(audio.duration);
+    this.$cover.setAttribute('src', audio.cover);
+    if(!audio.cover){
+      this.$cover.setAttribute('hidden','true');
+    }else {
+      this.$cover.removeAttribute('hidden','true');      
+    }
   }
 
   togglePlay() {
@@ -135,6 +141,7 @@ export default class PlayerAudioComponent extends HTMLElement {
     this.$title = this.querySelector('.title');
     this.$price = this.querySelector('.price');
     this.$totalDuration = this.querySelector('.player-progress-total');
+    this.$cover = this.querySelector('.cover-container img');
   }
 
   render() {
